@@ -3,12 +3,12 @@
 namespace Respect\ValidationBundle\Validator\Constraints;
 
 use Symfony\Component\Validator\Constraint;
-use Respect\ValidationBundle\Validator\RespectConstraintValidator;
+use Respect\ValidationBundle\Validator\ConstraintValidator;
 
 /**
  * @Annotation
  */
-class AssertValidator extends RespectConstraintValidator
+class AssertValidator extends ConstraintValidator
 {
     public function validate($value, Constraint $constraint)
     {   

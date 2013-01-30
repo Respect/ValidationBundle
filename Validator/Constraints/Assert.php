@@ -2,12 +2,12 @@
 
 namespace Respect\ValidationBundle\Validator\Constraints;
 
-use Respect\ValidationBundle\Validator\RespectConstraint;
+use Respect\ValidationBundle\Validator\Constraint;
 
 /**
  * @Annotation
  */
-class Assert extends RespectConstraint
+class Assert extends Constraint
 {
     public $options;
     
