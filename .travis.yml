@@ -1,11 +1,11 @@
 language: php
-script: phpunit . --verbose --coverage-text tests/
+script: phpunit --verbose --coverage-text
 
 php:
   - 5.3
 
 before_script:
-  - "composer install -v"
+  - php composer.phar install --dev
 
 after_script:
-  - "phpunit . --testdox tests/"
+  - phpunit --coverage-text
