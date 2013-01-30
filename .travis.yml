@@ -1,11 +1,11 @@
 language: php
 
 php:
-  - 5.3
+  - 5.3
   - 5.4
 
 before_script:
-  - composer install
+  - "composer install --dev"
 
 after_script:
-  - phpunit --coverage-text
+  - "phpunit --coverage-text"
