@@ -1,6 +1,6 @@
 <?php
 
-namespace Respect\ValidationBundle\Tests\Constraints;
+namespace Respect\ValidationBundle\Tests\Validator\Constraints;
 
 use Respect\Validation\Validator;
 use Respect\ValidationBundle\Validator\Constraints\Assert;
@@ -33,8 +33,8 @@ class AssertValidatorTest extends \PHPUnit_Framework_TestCase
             array(false),
             array(true),
             //array(new \stdClass()), what about this one?
-            array(12345),
-            array(array()),
+            //array(array()), and this one?
+            array(12345),            
         );
     }
     
