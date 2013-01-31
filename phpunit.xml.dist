@@ -9,10 +9,10 @@
          processIsolation="false"
          stopOnFailure="false"
          syntaxCheck="false"
-         bootstrap="vendor/autoload.php"
->
+         bootstrap="vendor/autoload.php">
+         
   <testsuites>
-    <testsuite name="KnpGaufretteBundle Test Suite">
+    <testsuite name="RespectValidationBundle Test Suite">
       <directory>./Tests</directory>
     </testsuite>
   </testsuites>
