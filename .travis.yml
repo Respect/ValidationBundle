@@ -8,4 +8,4 @@ before_script:
   - "composer install --dev"
 
 after_script:
-  - "phpunit --coverage-text"
+  - "phpunit --testdox"
