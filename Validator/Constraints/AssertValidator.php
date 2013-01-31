@@ -12,8 +12,7 @@ class AssertValidator extends ConstraintValidator
 {
     public function validate($value, Constraint $constraint)
     {   
-        foreach($constraint->options as $rule => $parameters)
-        {
+        foreach($constraint->options as $rule => $parameters) {
             try {
                 call_user_func_array(
                     array($this->validator, $rule), $parameters
