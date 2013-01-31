@@ -32,8 +32,8 @@ class AssertValidatorTest extends \PHPUnit_Framework_TestCase
         return array(
             array(false),
             array(true),
-            //array(new \stdClass()), what about this one?
-            //array(array()), and this one?
+            array(new \stdClass()),
+            array(array()),
             array(12345),            
         );
     }
@@ -48,10 +48,18 @@ class AssertValidatorTest extends \PHPUnit_Framework_TestCase
                 'string' => array('')
             )
         ));
-
+        
+        if(is_array($invalidString)) {
+            $violationMessage = '"Array" must be a string';
+        } else if(is_object($invalidString)) {
+            $violationMessage = '"Object of class ' . get_class($invalidString) . '" must be a string';
+        } else {
+            $violationMessage = "\"$invalidString\" must be a string";
+        }
+        
         $this->context->expects($this->once())
                       ->method('addViolation')
-                      ->with("\"$invalidString\" must be a string", array('{{ value }}' => $invalidString));
+                      ->with($violationMessage, array('{{ value }}' => $invalidString));
         
         $this->assertValidator->validate($invalidString, $constraint);
     }
