@@ -32,29 +32,28 @@ Usage:
 ### Use as service respect.validator:
 
 ```php    
-        //...
-        class AcmeController extends Controller
-        {
-            public function indexAction()
-            {
-                $number = 123;
-                $x = $this->get('respect.validator')->numeric()->validate($number);//true
-        //...
-```
-
-### Use as Alias:
-
-```php
-    <?php
- 
-    namespace Acme\DemoBundle\Controller;
-        
-    use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-    use Respect\Validation\Validator as v;
-
+    //...
     class AcmeController extends Controller
     {
+        public function indexAction()
+        {
+            $number = 123;
+            $x = $this->get('respect.validator')->numeric()->validate($number);//true
+    //...
+```
 
+### Use as alias:
+
+```php
+<?php
+ 
+namespace Acme\DemoBundle\Controller;
+        
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Respect\Validation\Validator as v;
+
+class AcmeController extends Controller
+{
     public function indexAction()
     {
         $validUsername = v::alnum()
