@@ -3,9 +3,12 @@ language: php
 php:
   - 5.3
   - 5.4
+  - 5.5
+  - 5.6
 
 before_script:
-  - "composer install --dev"
+  - composer self-update
+  - composer install
 
-after_script:
-  - "phpunit --testdox"
+script:
+  - vendor/bin/phpunit
