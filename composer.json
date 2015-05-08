@@ -22,6 +22,5 @@
         "psr-4": {
             "Respect\\ValidationBundle\\": "."
         }
-    },
-    "target-dir": "Respect/ValidationBundle"
+    }
 }
