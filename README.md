@@ -14,7 +14,7 @@ Package is available on [Packagist](http://packagist.org/packages/respect/valida
 you can install it using [Composer](http://getcomposer.org).
 
 ```shell
-composer require respect/validation
+composer require respect/validation-bundle
 ```
 
 Add the bundle to your AppKernel.php:
