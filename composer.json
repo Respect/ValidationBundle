@@ -36,7 +36,7 @@
         "phpstan/phpstan": "^2.0",
         "phpstan/phpstan-deprecation-rules": "^2.0",
         "phpstan/phpstan-phpunit": "^2.0",
-        "phpunit/phpunit": "^12.5",
+        "phpunit/phpunit": "^13.2",
         "respect/coding-standard": "^5.0",
         "squizlabs/php_codesniffer": "^4.0",
         "symfony/framework-bundle": "^8.0"
