@@ -49,10 +49,29 @@ return static function (ContainerConfigurator $configurator): void {
 
     $services = $configurator->services();
 
+    // Validators of optional dependencies fetch these through ContainerRegistry::getContainer()
+    // at runtime, so they must be public to survive container compilation
     if (class_exists('libphonenumber\\PhoneNumberUtil')) {
         $services->set('libphonenumber\\PhoneNumberUtil')
             ->class('libphonenumber\\PhoneNumberUtil')
-            ->factory(['libphonenumber\\PhoneNumberUtil', 'getInstance']);
+            ->factory(['libphonenumber\\PhoneNumberUtil', 'getInstance'])
+            ->public();
+    }
+
+    if (class_exists('Ramsey\\Uuid\\UuidFactory')) {
+        $services->set('Ramsey\\Uuid\\UuidFactory')
+            ->class('Ramsey\\Uuid\\UuidFactory')
+            ->public();
+    }
+
+    foreach (['Countries', 'Currencies', 'Languages', 'Subdivisions'] as $database) {
+        if (!class_exists('Sokil\\IsoCodes\\Database\\' . $database)) {
+            continue;
+        }
+
+        $services->set('Sokil\\IsoCodes\\Database\\' . $database)
+            ->class('Sokil\\IsoCodes\\Database\\' . $database)
+            ->public();
     }
 
     $services->set(Transformer::class, Prefix::class);
